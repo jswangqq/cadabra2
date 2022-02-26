@@ -1,0 +1,2 @@
+docker run -t --name cadabra2 --restart=always -p 10022:22 -p 18888:8888 \
+-v /home/nature/workspace/cadabra:/workspace mainhope/cadabra2
