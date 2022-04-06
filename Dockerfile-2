@@ -1,0 +1,15 @@
+FROM mainhope/cadabra2:env
+USER root
+SHELL [ "/bin/bash", "-c" ]
+
+RUN pip3 install --upgrade --user nbconvert
+RUN jupyter-notebook --generate-config
+COPY jupyter_notebook_config.py /root/.jupyter/jupyter_notebook_config.py
+
+RUN mkdir /workspace
+
+EXPOSE 8888
+
+WORKDIR /workspace/
+ENTRYPOINT [ "jupyter-notebook" ]
+# CMD [ "/bin/bash" ]
